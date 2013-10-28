@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: picture_app_development
+  pool: 5
+  host: localhost
+  username: corinne2
+  password:
