@@ -7,7 +7,6 @@ PictureApp::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-
   resources :categories
   resources :pictures
   resources :users, :except => [:edit] do
