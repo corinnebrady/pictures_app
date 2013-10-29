@@ -45,6 +45,32 @@ class PicturesController < ApplicationController
     @picture = Picture.find params[:id]
   end
 
+  def destroy
+    picture = Picture.find params[:id]
+    if @picture.user_id != @authenticated.id
+      redirect_to root_path
+    end
+    picture.destroy
+    redirect_to root_path
+  end
+
+  def favourites
+    @favourites = Favourite.all
+    @pictures = Picture.all
+
+  end
+
+  def favouritecreate
+    favourite = Favourite.create :picture_id => params[:id], :user_id => @authenticated.id
+    redirect_to favourites_path(@authenticated.id)
+  end
+
+  def favouritedestroy
+    favourite = Favourite.find params[:id]
+    favourite.destroy
+    redirect_to favourites_path(@authenticated.id)
+  end
+
 
 
 

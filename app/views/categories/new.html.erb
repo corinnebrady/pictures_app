@@ -1,0 +1,22 @@
+<h1>This is the category/NEW page</h1>
+
+<% if @category.errors.any? %>
+  <ol>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning"><%= msg %></div>
+    <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @category do |f| %>
+  <div class='form-group'>
+    <%= f.label :name %>
+    <%= f.text_field :name, :autofocus => true, :class => 'form-control' %>
+  </div>
+
+  <% @users.each do |user| %>
+    <input type="checkbox" name="<%= user.username %>" value="<%= user.id %> "><%= user.username %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

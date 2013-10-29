@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
 
   def new
-    @categories = Category.new
+    @category = Category.new
+    @users = User.all
   end
 
   def create
@@ -16,23 +17,37 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find params[:id]
-    render :new
+    @categories = Category.all
+
   end
 
   def update
     category = Category.find params[:id]
-    if @picture.user_id != @authenticated.id
-      redirect_to root_path
-    end
+    # if @picture.user_id != @authenticated.id
+    #   redirect_to root_path
+    # end
     if category.update_attributes params[:category]
-      redirect_to user_path(@authenticated)
+      redirect_to :back
+#      redirect_to user_path(@authenticated)
     else
       render :new
     end
   end
 
+  def show
+    @category = Category.find params[:id]
+
+  end
 
 
+  def destroy
+    category = Category.find params[:id]
+    if @category.user_id != @authenticated.id
+      redirect_to root_path
+    end
+    category.destroy
+    redirect_to root_path
+  end
 
 
 

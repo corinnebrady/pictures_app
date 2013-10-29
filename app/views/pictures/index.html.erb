@@ -3,6 +3,7 @@
 
   <% @pictures.each do |picture| %>
      <h4><%= picture.name %> </h4>
+     <h5><%= link_to picture.user.username, user_path(picture.user) %> </h5>
     <%= link_to (image_tag picture.picture), picture_path(picture) %>
     <p><%= picture.description %> </p>
   <% end %>

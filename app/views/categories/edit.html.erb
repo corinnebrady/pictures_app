@@ -1,0 +1,19 @@
+<h1>This is the category/ EDIT page</h1>
+
+<% if @category.errors.any? %>
+  <ol>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning"><%= msg %></div>
+    <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @category do |f| %>
+  <% @categories.each do |category| %>
+    <input type="checkbox" name="<%= category.name %>" value="<%= category.id %> "><%= category.name %>
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>

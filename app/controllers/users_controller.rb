@@ -36,7 +36,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = @authenticated
+ #   @user = @authenticated
+    @user = User.find params[:id]
     @picture = Picture.new
   end
 
