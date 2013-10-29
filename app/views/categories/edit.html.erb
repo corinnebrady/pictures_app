@@ -10,7 +10,7 @@
 
 <%= form_for @category do |f| %>
   <% @categories.each do |category| %>
-    <input type="checkbox" name="<%= category.name %>" value="<%= category.id %> "><%= category.name %>
+    <input type="checkbox" name="category[]" value="<%= category.id %> "><%= category.name %>
     <% end %>
   <% end %>
 

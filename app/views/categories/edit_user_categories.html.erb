@@ -1,0 +1,13 @@
+<h1>This is the page that lets you pick categories to add to an already chosen user</h1>
+
+
+<form method="put" action="/categories/add_to_categories" >
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <input name="new_category">
+    <% @categories.each do |category| %>
+      <input type="checkbox" name="category[]" value="<%= category.id %> "><%= category.name %>
+    <% end %>
+  <input type="submit" value="Submit">
+</form>
+
+
