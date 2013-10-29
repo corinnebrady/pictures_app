@@ -11,6 +11,8 @@ end
 
 module PictureApp
   class Application < Rails::Application
+    config.assets.initialize_on_precompile = false # THIS IS WHAT WE ADDED WHEN WE FIXED "Precompiling assets failed" ERROR
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
