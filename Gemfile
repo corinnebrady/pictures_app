@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg'
+gem 'rails_12factor', group: :production
 gem 'haml'
 gem 'bcrypt-ruby', '3.0.0'
 
