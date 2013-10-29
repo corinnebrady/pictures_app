@@ -1,0 +1,29 @@
+<h1>This is the users/show page</h1>
+
+<div class="btn-group-vertical">
+  <%= link_to 'Edit Profile', edit_users_path %>
+  <%= link_to 'Add Picture', new_picture_path %>
+  <%= link_to 'Add Category', new_category_path %>
+</div>
+
+<h2><%= @user.username %> </h2>
+<%= image_tag @user.image %>
+
+<h5>Categories</h4>
+  <% @user.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
+
+<h3>My Pictures</h3>
+   <%= link_to 'New Picture', new_picture_path(@picture) %>
+
+  <% @user.pictures.each do |picture| %>
+    <h4><%= picture.name %> </h4>
+    <%= link_to (image_tag picture.picture), picture_path(picture) %>
+    <p><%= picture.description %> </p>
+  <% end %>
+
+
+
+
+

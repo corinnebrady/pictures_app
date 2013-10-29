@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :check_if_logged_in, :except => [:new, :create]
-  before_filter :check_if_admin, :only => [:index, :destroy]
+  before_filter :check_if_admin, :only => [:destroy]
 
   def index
     @users = User.all
@@ -15,13 +15,10 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to user_show_pictures_path
     else
       render :new
     end
-  end
-
-  def weatherreport
   end
 
   def edit
@@ -37,6 +34,12 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @user = @authenticated
+    @picture = Picture.new
+  end
+
 
   private
   def check_if_logged_in

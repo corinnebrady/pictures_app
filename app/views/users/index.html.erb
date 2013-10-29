@@ -1,0 +1,7 @@
+<h1>This is the users/index page</h1>
+
+
+  <% @users.each do |user| %>
+    <h3><%= user.username %> </h3>
+    <%= image_tag user.image %>
+  <% end %>

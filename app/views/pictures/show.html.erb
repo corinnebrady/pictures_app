@@ -1,0 +1,12 @@
+<h1>This is the page that displays A SINGLE pictures</h1>
+
+
+
+<h2><%= @picture.name %></h2>
+<%= image_tag @picture.picture %>
+<p><%= @picture.description %></p>
+
+<% if @picture.user_id == @authenticated.id %>
+  <%= link_to 'Edit Picture', edit_picture_path(@picture) %>
+  <%= button_to 'Delete Picture', picture_path(@picture), :method => 'delete' %>
+<% end %>

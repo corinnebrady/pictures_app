@@ -23,8 +23,9 @@ class User < ActiveRecord::Base
   has_many :favourites
   has_and_belongs_to_many :categories
 
-  #validates :image, :presence => true
-  validates :name, :presence => true, :length => { :minimum => 4 }
+  validates :email, :presence => true
+  validates :image, :presence => true
+  validates :username, :presence => true, :length => { :minimum => 3 }
 
 
 end
