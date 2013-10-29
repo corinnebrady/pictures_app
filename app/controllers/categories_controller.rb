@@ -32,14 +32,6 @@ class CategoriesController < ApplicationController
   end
 
 
-    if @category.update_attributes params[:user]
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
-
 
 
 
