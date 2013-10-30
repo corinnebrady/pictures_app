@@ -1,14 +1,14 @@
 <h1>This is the category/NEW page</h1>
 
-<!--
-< % if @category.errors.any? %>
+
+<% if @category.errors.any? %>
   <ol>
-    < % @category.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning">< %= msg %></div>
-    < % end %>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning"><%= msg %></div>
+    <% end %>
   </ol>
-< % end %>
- -->
+<% end %>
+
 
 
 <%= form_tag "/categories/new_category", :method => 'post' do %>
@@ -18,9 +18,7 @@
   <br>
   <h4>Select who to add this category:</h4>
     <% @users.each do |user| %>
-      <% if @category.owner_id == @authenticated.id %>
-        <%= check_box_tag "user[]", user.id, user.id.in?(@category.user_ids) %><%= user.username %>
-      <% end %>
+        <%= check_box_tag "user[]", user.id %><%= user.username %>
     <% end %>
   <br>
   <%= submit_tag("Submit") %>

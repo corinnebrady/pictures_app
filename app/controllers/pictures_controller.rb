@@ -47,11 +47,11 @@ class PicturesController < ApplicationController
 
   def destroy
     picture = Picture.find params[:id]
-    if @picture.user_id != @authenticated.id
-      redirect_to root_path
-    end
+    # if @picture.user_id != @authenticated.id
+    #   redirect_to root_path
+    # end
     picture.destroy
-    redirect_to root_path
+    redirect_to user_path(@authenticated)
   end
 
   def favourites

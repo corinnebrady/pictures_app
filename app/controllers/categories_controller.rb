@@ -1,18 +1,19 @@
 class CategoriesController < ApplicationController
 
   def new
+    @category = Category.new
     @users = User.all
   end
 
   def create
-    category = Category.create params[:new_category]
+    category = Category.create :name => params[:new_category], :owner_id => @authenticated.id
 
-    @users.each do |user_id|
+    params[:user].each do |user_id|
       user = User.find(user_id)
-      user.categories << @category
+      user.categories << category
     end
 
-    redirect_to user_path(@user)
+    redirect_to root_path
   end
 
 
@@ -23,15 +24,15 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find params[:id]
-    @users = User.all
 
-    @users.each do |user_id|
+    @category.users = []
+
+    params[:user].each do |user_id|
       user = User.find(user_id)
       if @category.owner_id == @authenticated.id
         user.categories << @category
       end
     end
-
     redirect_to category_path(@category)
   end
 
@@ -56,9 +57,9 @@ class CategoriesController < ApplicationController
 
   def destroy
     category = Category.find params[:id]
-    if @category.user_id != @authenticated.id
-      redirect_to root_path
-    end
+#    if @category.user_id != @authenticated.id
+#      redirect_to root_path
+#    end
     category.destroy
     redirect_to root_path
   end
@@ -71,7 +72,8 @@ class CategoriesController < ApplicationController
   def add_user_to_categories
     user = User.find params[:member_id]
 
-    # remove the user from ALL categories
+    # remove the user from all authenticated's categories
+    user.categories = user.categories.where('owner_id != ?', @authenticated.id)
 
     if params[:new_category].present?
       new_category = Category.create(:name => params[:new_category],

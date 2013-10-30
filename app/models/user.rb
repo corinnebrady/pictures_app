@@ -19,15 +19,17 @@ class User < ActiveRecord::Base
 
   attr_accessible :username, :email, :image, :password, :password_confirmation, :is_admin#, :user_ids
 
-  mount_uploader :picture, PictureUploader
+#  mount_uploader :picture, PictureUploader
 
   has_many :pictures
   has_many :favourites
   has_and_belongs_to_many :categories
 
   validates :email, :presence => true
+  validates :email, :uniqueness => true
   validates :image, :presence => true
   validates :username, :presence => true, :length => { :minimum => 3 }
+  validates :password, :length => { :minimum => 6 }
 
   def owned_categories
     Category.where :owner_id => self.id

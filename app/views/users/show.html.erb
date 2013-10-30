@@ -3,8 +3,8 @@
 <div class="btn-group-vertical">
   <% if @user.id == @authenticated.id %>
     <%= link_to 'Edit Profile', edit_users_path %>
-    <%= link_to 'Add Picture', new_picture_path %>
-    <%= link_to 'Add Category', edit_category_path %>
+    <%= link_to 'New Picture', new_picture_path %>
+    <%= link_to 'New Category', new_category_path %>
   <% end %>
   <% if @user.id != @authenticated.id %>
     <%= link_to 'Add to a Category', edit_user_to_categories_path(@user) %>

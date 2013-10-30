@@ -1,6 +1,7 @@
 <h1>This is the page that lets you pick categories to add to an already chosen user</h1>
 
 
+
 <%= form_tag "/categories/add_user_to_categories", :method => 'post' do %>
   <input type="hidden" name="member_id" value="<%= @user.id %>">
   <%= label_tag(:new_category, "Create a New Category:") %>

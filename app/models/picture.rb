@@ -14,7 +14,7 @@
 class Picture < ActiveRecord::Base
   attr_accessible :picture, :description, :user_id, :name
 
-  mount_uploader :picture, PictureUploader
+#  mount_uploader :picture, PictureUploader
 
   belongs_to :user
   has_and_belongs_to_many :favourites

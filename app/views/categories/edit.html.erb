@@ -1,17 +1,17 @@
 <h1>This is the category/ EDIT page</h1>
-<!--
-< % if @category.errors.any? %>
+
+<% if @category.errors.any? %>
   <ol>
-    < % @category.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning">< %= msg %></div>
-    < % end %>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning"><%= msg %></div>
+    <% end %>
   </ol>
-< % end %> -->
+<% end %>
 
 
 
 
-<%= form_tag "/categories/#{@category.id}", :method => 'post' do %>
+<%= form_tag "/categories/#{@category.id}", :method => 'put' do %>
   <input type="hidden" name="id" value="<%= @category.id %>">
 
   <h4>Select who to add this category:</h4>

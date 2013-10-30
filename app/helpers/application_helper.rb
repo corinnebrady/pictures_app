@@ -7,9 +7,10 @@ module ApplicationHelper
         links += "<li>#{link_to("Show Users", users_path)}</li>"
       end
       links += "<li>#{ link_to('Users', users_path)}</li>"
-      links += "<li>#{ link_to('My Profile', user_path(@authenticated) )}</li>"
-      links += "<li>#{ link_to('My Favourites', favourites_path(@authenticated) )}</li>"
-      links += "<li>#{ link_to('Edit Profile', edit_users_path )}</li>"
+      links += "<li>#{ link_to('My Profile', user_path(@authenticated))}</li>"
+      links += "<li>#{ link_to('New Picture', new_picture_path)}</li>"
+      # links += "<li>#{ link_to('My Favourites', favourites_path(@authenticated) )}</li>"
+      links += "<li>#{ link_to('Edit Profile', edit_users_path)}</li>"
       links += "<li>#{ link_to('Logout ' + @authenticated.username, login_path, :method => 'delete',
                       :confirm => 'Are you sure?') }</li>"
     else

@@ -13,12 +13,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new params[:user]
 
+    @user.image = 'default_user_picture.png' unless @user.image.present?
+
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_show_pictures_path
+      category = Category.create :name => 'All', :owner_id => @user.id
+      category.users = User.all
+#wishlist- add future users
+      redirect_to root_path
+
     else
       render :new
     end
+
+
   end
 
   def edit

@@ -18,11 +18,11 @@ PictureApp::Application.routes.draw do
   get     '/categories/add_user_to_categories/:id/edit' => 'categories#edit_user_categories', :as => 'edit_user_to_categories'
   post     '/categories/add_user_to_categories' => 'categories#add_user_to_categories'
   get    '/categories/:id/edit' => 'categories#edit', :as => 'edit_category'
-  get    '/categories/:id' => 'categories#show', :as => 'category'
-  post    '/categories/:id' => 'categories#update'
-  delete '/categories/:id' => 'categories#destroy'
-  post    '/categories/:id' => 'categories#create'
   get    '/categories/:id/new' => 'categories#new', :as => 'new_category'
+  post    '/categories/:id' => 'categories#create'
+  get    '/categories/:id' => 'categories#show', :as => 'category'
+  put    '/categories/:id' => 'categories#update'
+  delete '/categories/:id' => 'categories#destroy'
 
 #  get '/categories' => 'categories#add_to_categories'
 
