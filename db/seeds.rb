@@ -1,7 +1,7 @@
 User.destroy_all
 Picture.destroy_all
 Category.destroy_all
-Favourite.destroy_all
+
 
 u1 = User.create(:username => "Corinne", :email => "cemail@email.com", :image => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password", :is_admin => true)
 u2 = User.create(:username => "Anna", :email => "aemail@email.com", :image => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
@@ -20,11 +20,8 @@ p8 = Picture.create(:name => "Name", :picture => "http://images.nationalgeograph
 c1 = Category.create(:name => "People I like")
 c2 = Category.create(:name => "My peeps")
 c3 = Category.create(:name => "Another category")
-
-f1 = Favourite.create(:name => "I Heart These")
-f2 = Favourite.create(:name => "Awesome")
-f3 = Favourite.create(:name => "Lolz")
-f4 = Favourite.create(:name => "Nice")
+c4 = Category.create(:name => "I Heart These")
+c5 = Category.create(:name => "Awesome")
 
 
 # Associate users and pictures
@@ -33,28 +30,23 @@ u2.pictures << p2 << p8 << p3
 u3.pictures << p6 << p4
 u4.pictures << p5
 
-# Associate users and favourites
-u1.favourites << f1 << f3
-u2.favourites << f2
-u3.favourites << f4
-
-# Associate users and categories
-u2.categories << c3
-u4.categories << c1 << c2
-
-# Associate pictures and favourites
-p1.favourites << f1
-p2.favourites << f1
-p3.favourites << f2 << f3
-p4.favourites << f3 << f4 << f2 << f1
-p5.favourites << f4 << f2 << f4
-p6.favourites << f1 << f3 << f4
-p7.favourites << f2 << f4 << f1
-p8.favourites << f1 << f3
 
 
+# Associate owners and categories
+c1.owner_id = u3.id
+c2.owner_id = u4.id
+c3.owner_id = u1.id
+c4.owner_id = u1.id
+c5.owner_id = u2.id
+c1.save
+c2.save
+c3.save
+c4.save
+c5.save
 
-
-
-
-
+# Associate categories and member users
+c1.users << u1 << u2
+c2.users << u1 << u3 << u4
+c3.users << u1 << u4
+c4.users << u1 << u2 << u3 << u4
+c5.users << u1 << u4 << u2

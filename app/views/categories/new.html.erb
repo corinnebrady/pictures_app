@@ -1,22 +1,30 @@
 <h1>This is the category/NEW page</h1>
 
-<% if @category.errors.any? %>
+<!--
+< % if @category.errors.any? %>
   <ol>
-    <% @category.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning"><%= msg %></div>
-    <% end %>
+    < % @category.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning">< %= msg %></div>
+    < % end %>
   </ol>
+< % end %>
+ -->
+
+
+<%= form_tag "/categories/new_category", :method => 'post' do %>
+  <input type="hidden" name="id" value="new_category">
+  <%= label_tag(:new_category, "Create a New Category:") %>
+  <%= text_field_tag(:new_category) %>
+  <br>
+  <h4>Select who to add this category:</h4>
+    <% @users.each do |user| %>
+      <% if @category.owner_id == @authenticated.id %>
+        <%= check_box_tag "user[]", user.id, user.id.in?(@category.user_ids) %><%= user.username %>
+      <% end %>
+    <% end %>
+  <br>
+  <%= submit_tag("Submit") %>
 <% end %>
 
-<%= form_for @category do |f| %>
-  <div class='form-group'>
-    <%= f.label :name %>
-    <%= f.text_field :name, :autofocus => true, :class => 'form-control' %>
-  </div>
 
-  <% @users.each do |user| %>
-    <input type="checkbox" name="<%= user.username %>" value="<%= user.id %> "><%= user.username %>
-  <% end %>
 
-  <%= f.submit %>
-<% end %>

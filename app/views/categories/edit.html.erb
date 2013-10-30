@@ -1,19 +1,31 @@
 <h1>This is the category/ EDIT page</h1>
-
-<% if @category.errors.any? %>
+<!--
+< % if @category.errors.any? %>
   <ol>
-    <% @category.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning"><%= msg %></div>
-    <% end %>
+    < % @category.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning">< %= msg %></div>
+    < % end %>
   </ol>
-<% end %>
+< % end %> -->
 
-<%= form_for @category do |f| %>
-  <% @categories.each do |category| %>
-    <input type="checkbox" name="category[]" value="<%= category.id %> "><%= category.name %>
+
+
+
+<%= form_tag "/categories/#{@category.id}", :method => 'post' do %>
+  <input type="hidden" name="id" value="<%= @category.id %>">
+
+  <h4>Select who to add this category:</h4>
+    <% @users.each do |user| %>
+      <% if @category.owner_id == @authenticated.id %>
+        <%= check_box_tag "user[]", user.id, user.id.in?(@category.user_ids) %><%= user.username %>
+      <% end %>
     <% end %>
-  <% end %>
-
-  <%= f.submit %>
-
+  <br>
+  <%= submit_tag("Submit") %>
 <% end %>
+
+
+
+
+
+

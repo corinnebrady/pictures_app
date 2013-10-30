@@ -1,0 +1,14 @@
+
+
+<h2><%= picture.name %></h2>
+<h5><%= link_to picture.user.username, user_path(picture.user) %> </h5>
+<%= image_tag picture.picture %>
+<p><%= picture.description %></p>
+
+  <%= link_to 'Make a Favourite!', new_favourites_path(picture, @authenticated) %>
+
+
+<% if picture.user_id == @authenticated.id %>
+  <%= link_to 'Edit Picture', edit_picture_path(picture) %>
+  <%= button_to 'Delete Picture', picture_path(picture), :method => 'delete' %>
+<% end %>
