@@ -1,29 +1,30 @@
-<h1>This is the users/show page</h1>
 
-<div class="btn-group-vertical">
-  <% if @user.id == @authenticated.id %>
-    <%= link_to 'Edit Profile', edit_users_path %>
-    <%= link_to 'New Picture', new_picture_path %>
-    <%= link_to 'New Category', new_category_path %>
-  <% end %>
-  <% if @user.id != @authenticated.id %>
-    <%= link_to 'Add to a Category', edit_user_to_categories_path(@user) %>
-  <% end %>
+<div class="row">
+  <div class="col-xs-12 col-md-10">
+    <h2>My Pictures</h2>
+      <%= render :partial => 'pictures/picture', :collection => @user.pictures %>
+  </div>
+
+  <div class="col-xs-6 col-md-2">
+    <h2 class="username"><%= @user.username %> </h2>
+    <%= image_tag @user.image, class: "user_img" %>
+
+    <div class="btn-group-vertical">
+      <% if @user.id == @authenticated.id %>
+        <%= link_to 'Edit Profile', edit_users_path, class: "btn btn-default dropdown-toggle" %>
+        <%= link_to 'New Picture', new_picture_path, class: "btn btn-default dropdown-toggle" %>
+        <%= link_to 'New Category', new_category_path, class: "btn btn-default dropdown-toggle" %>
+      <% end %>
+      <% if @user.id != @authenticated.id %>
+        <div class="side_nav"><%= link_to 'Add to a Category', edit_user_to_categories_path(@user) %></div>
+      <% end %>
+
+      <h5 class="btn btn-default dropdown-toggle">Categories</h4>
+        <% @user.owned_categories.each do |category| %>
+          <%= link_to category.name, category_path(category), class: "btn btn-default dropdown-toggle" %>
+        <% end %>
+    </div>
+  </div>
 
 </div>
-
-<h2><%= @user.username %> </h2>
-<%= image_tag @user.image %>
-
-<h5>Categories</h4>
-
-  <% @user.owned_categories.each do |category| %>
-    <%= link_to category.name, category_path(category) %>
-  <% end %>
-
-<h3>My Pictures</h3>
-   <%= link_to 'New Picture', new_picture_path(@picture) %>
-
-  <%= render :partial => 'pictures/picture', :collection => @user.pictures %>
-
 

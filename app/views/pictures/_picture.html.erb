@@ -1,18 +1,11 @@
 
-<div class="row">
-<!--   <div class="col-sm-6 col-md-4"> -->
+
+   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <%= link_to image_tag(picture.picture), picture_path(picture), class: "thumbnail" %>
       <div class="caption">
-        <h4><%= picture.name %></h4>
-        <h6><%= link_to picture.user.username, user_path(picture.user) %> </h6>
+        <p class="thumb_cap"><%= picture.name %></p>
+        <p class="thumb_cap"><strong><%= link_to picture.user.username, user_path(picture.user) %> </strong></p>
       </div>
     </div>
-<!--   </div>
- --></div>
-
-
-<% if picture.user_id == @authenticated.id %>
-  <%= link_to 'Edit Picture', edit_picture_path(picture) %>
-  <%= button_to 'Delete Picture', picture_path(picture), :method => 'delete' %>
-<% end %>
+</div>

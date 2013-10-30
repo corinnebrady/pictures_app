@@ -1,33 +1,13 @@
 body {
   margin-top: 60px;
   background-color: rgba(165, 165, 165, 1);
-  color: rgba(6, 14, 69, 1)
+  color: rgba(6, 14, 69, 1);
+  font-family: 'Cherry Swash', cursive;
 }
 
 .container {
-
+  font-family: 'Cherry Swash', cursive;
 }
-
-
-/*******************************************
-                THUMBNAIL
-*******************************************/
-div.thumbnail {
-  height: 350px;
-  width: 250px;
-  background-color: rgba(200, 200, 200, 1);
-}
-
-a.thumbnail {
-  background-color: rgba(200, 200, 200, 1);
-
-}
-
-.thumbnail img {
-  max-height: 228px;
-
-}
-
 
 
 /*******************************************
@@ -37,20 +17,154 @@ a.thumbnail {
   background-color: rgba(6, 14, 69, 1);
 }
 
+.navbar > .container .navbar-brand {
+  color: rgba(200, 200, 200, 1);
+}
 
+.navbar > .container .navbar-brand:hover{
+  text-shadow: 0 0 15px rgba(200, 200, 200, 1);
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgba(200, 200, 200, 1);
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+  text-shadow: 0 0 15px rgba(200, 200, 200, 1);
+}
+
+/*******************************************
+                THUMBNAIL
+*******************************************/
+div.thumbnail {
+  height: 300px;
+  width: 228px;
+  background-color: rgba(200, 200, 200, 1);
+  margin: 20px 0;
+  border: 4px solid rgba(6, 14, 69, .7);
+  color: rgba(6, 14, 69, 1);
+  border-radius: 10px;
+}
+
+.thumbnail a {
+  background-color: rgba(200, 200, 200, 1);
+  color: rgba(6, 14, 69, 1);
+}
+
+.thumbnail img {
+  max-height: 228px;
+}
+
+.thumbnail .caption {
+  color: rgba(6, 14, 69, 1);
+  padding: 5px;
+  position: absolute;
+  bottom: 20px;
+}
+
+.thumb_cap {
+  color: rgba(6, 14, 69, 1);
+  margin: 0;
+}
+
+.thumb_cap a {
+  text-align: right;
+  text-decoration: none;
+}
+
+.thumb_cap a:hover {
+  text-shadow: 0 0 9px rgba(6, 14, 69, .3);
+}
+
+/*******************************************
+                SIDE NAV
+*******************************************/
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-group {
+  max-width: 196px;
+  margin: auto;
+  border: 3px solid rgba(6, 14, 69, .7);
+  border-radius: 10px;
+  background-color: rgba(200, 200, 200, 1);
+}
+
+.side_nav_cat {
+  background-color: rgba(165, 165, 165, 1);
+}
+
+.username {
+  text-align: center;
+}
+
+.user_img {
+  max-width: 150px;
+  border: 3px solid rgba(6, 14, 69, .7);
+  border-radius: 10px;
+}
 
 /*******************************************
                 SHOW PICTURE
 *******************************************/
 
+
 .show_picture {
   margin: auto;
+}
+
+.show_pic_page {
+  margin: auto;
+
+}
+
+
+/*******************************************
+                USER INDEX
+*******************************************/
+
+.user_index {
+  display: inline-block;
+  margin: 20px;
+  background-color: rgba(200, 200, 200, 1);
+  padding: 10px;
+  border: 5px solid rgba(6, 14, 69, .7);
+  border-radius: 10px;
+}
+
+.user_index h3 {
+  text-align: center;
+}
+
+.user_index img {
+  border: 3px solid rgba(6, 14, 69, .5);
 }
 
 
 
 
+/*******************************************
+                OTHER
+*******************************************/
 
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  border: 3px solid rgba(6, 14, 69, .7);
+  border-radius: 4px;
+  color: rgba(6, 14, 69, .7);
+  padding-bottom: 1px;
+}
+
+a {
+  text-align: right;
+  text-decoration: none;
+  color: rgba(6, 14, 69, 1);
+
+}
+
+a:hover {
+  text-shadow: 0 0 9px rgba(6, 14, 69, .3);
+  text-decoration: none;
+  color: rgba(6, 14, 69, 1);
+
+}
 
 
 

@@ -1,17 +1,18 @@
 <h1>This is the page that displays A SINGLE pictures</h1>
 
+<div class="show_pic_page"
+  <h2><%= @picture.name %></h2>
+  <h5><%= link_to @picture.user.username, user_path(@picture.user) %> </h5>
+  <div class="show_picture">
+  <%= image_tag @picture.picture %>
+  </div>
+  <p><%= @picture.description %></p>
 
-<h2><%= @picture.name %></h2>
-<h5><%= link_to @picture.user.username, user_path(@picture.user) %> </h5>
-<div class="show_picture">
-<%= image_tag @picture.picture %>
+   <!--  < %= link_to 'Make a Favourite!', new_favourites_path(picture, @authenticated) %>
+   -->
+
+  <% if @picture.user_id == @authenticated.id %>
+    <%= link_to 'Edit Picture', edit_picture_path(@picture) %>
+    <%= button_to 'Delete Picture', picture_path(@picture), :method => 'delete' %>
+  <% end %>
 </div>
-<p><%= @picture.description %></p>
-
- <!--  < %= link_to 'Make a Favourite!', new_favourites_path(picture, @authenticated) %>
- -->
-
-<% if @picture.user_id == @authenticated.id %>
-  <%= link_to 'Edit Picture', edit_picture_path(@picture) %>
-  <%= button_to 'Delete Picture', picture_path(@picture), :method => 'delete' %>
-<% end %>
