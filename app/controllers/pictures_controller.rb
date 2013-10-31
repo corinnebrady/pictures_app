@@ -9,8 +9,10 @@ class PicturesController < ApplicationController
   end
 
   def create
+
     @picture = Picture.new params[:picture]
     @picture.user = @authenticated
+
     if @picture.save
       redirect_to picture_path(@picture)
     else
@@ -65,7 +67,7 @@ class PicturesController < ApplicationController
   end
 
   def destroy_favourite
-    favourite = Favourite.find params[:id]
+    favourite = Favourite.where(:picture_id => params[:id], :user_id => @authenticated.id).first
     favourite.destroy
     redirect_to :back
   end

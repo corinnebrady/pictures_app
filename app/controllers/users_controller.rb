@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = @authenticated
   end
 
   def new
@@ -44,14 +45,13 @@ class UsersController < ApplicationController
   end
 
   def show
- #   @user = @authenticated
     @user = User.find params[:id]
     @picture = Picture.new
   end
 
   def favourites
-    @favourites = Favourite.all
-    @pictures = Picture.all
+    @user = User.find params[:id]
+    @favourites = @user.favourites
   end
 
 

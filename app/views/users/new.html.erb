@@ -8,7 +8,7 @@
   </ol>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
 
   <div class='form-group'>
     <%= f.label :username %>
@@ -18,9 +18,15 @@
     <%= f.label :email %>
     <%= f.text_field :email, :class => 'form-control' %>
   </div>
+  <%= image_tag @user.image_url if @user.image? %>
+
   <div class='form-group'>
     <%= f.label :image %>
-    <%= f.text_field :image, :class => 'form-control' %>
+    <%= f.file_field :image %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :remote_image_url, "Or Picture Url" %>
+    <%= f.text_field :remote_image_url, :class => 'form-control' %>
   </div>
   <div class='form-group'>
     <%= f.label :password %>

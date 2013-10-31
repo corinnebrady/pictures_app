@@ -20,9 +20,9 @@ PictureApp::Application.routes.draw do
 
 
   get '/picture/:id/favourite' => 'pictures#favourite', :as => 'favourite'
-  delete '/picture/:id/favourite/delete' => 'pictures#destroy_favourite', :as => 'destroy_favourite'
+  delete '/picture/:id/favourite' => 'pictures#destroy_favourite', :as => 'destroy_favourite'
 
-  get '/users/:id/favourites' => 'users#favourite', :as => 'favourites'
+  get '/users/:id/favourites' => 'users#favourites', :as => 'favourites'
 
 
   resources :pictures

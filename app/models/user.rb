@@ -17,9 +17,9 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  attr_accessible :username, :email, :image, :password, :password_confirmation, :is_admin#, :user_ids
+  attr_accessible :username, :email, :image, :password, :password_confirmation, :is_admin, :remote_image_url #, :user_ids
 
-#  mount_uploader :picture, PictureUploader
+  mount_uploader :image, PictureUploader
 
   has_many :pictures
   has_many :favourites

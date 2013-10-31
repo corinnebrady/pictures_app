@@ -8,15 +8,20 @@
   </ol>
 <% end %>
 
-<%= form_for @picture do |f| %>
+<%= form_for @picture, :html => {:multipart => true} do |f| %>
 
   <div class='form-group'>
     <%= f.label :name %>
     <%= f.text_field :name, :autofocus => true, :class => 'form-control' %>
   </div>
+  <%= image_tag @picture.picture_url if @picture.picture? %>
   <div class='form-group'>
     <%= f.label :picture %>
-    <%= f.text_field :picture, :class => 'form-control' %>
+    <%= f.file_field :picture %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :remote_picture_url, "Or Picture Url" %>
+    <%= f.text_field :remote_picture_url, :class => 'form-control' %>
   </div>
   <div class='form-group'>
     <%= f.label :description %>

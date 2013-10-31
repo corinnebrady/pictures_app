@@ -5,12 +5,10 @@
   <%= image_tag user.image, class: "user_img" %>
 
   <div class="btn-group-vertical">
-    <% if user.id == @authenticated.id %>
-      <%= link_to 'My Favourites', favourites_path, class: "btn btn-default dropdown-toggle" %>
+      <%= link_to 'My Favourites', "/users/#{user.id}/favourites", class: "btn btn-default dropdown-toggle" %>
       <%= link_to 'Edit Profile', edit_users_path, class: "btn btn-default dropdown-toggle" %>
       <%= link_to 'New Picture', new_picture_path, class: "btn btn-default dropdown-toggle" %>
       <%= link_to 'New Category', new_category_path, class: "btn btn-default dropdown-toggle" %>
-    <% end %>
 
     <h5 class="btn btn-default dropdown-toggle heading">Categories</h4>
       <% user.owned_categories.each do |category| %>

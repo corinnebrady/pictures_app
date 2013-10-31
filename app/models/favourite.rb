@@ -13,7 +13,7 @@ class Favourite < ActiveRecord::Base
   attr_accessible :user_id, :picture_id
 
   belongs_to :user
-  has_one :picture
+  belongs_to :picture
 
 
 end

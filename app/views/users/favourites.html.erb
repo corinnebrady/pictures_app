@@ -2,9 +2,7 @@
   <div class="col-xs-12 col-md-10">
     <h1>My Favourites</h1>
       <% @favourites.each do |favourite| %>
-        <% @pictures.each do |picture| %>
-          <%= render :partial => '_picture' %>
-        <% end %>
+          <%= render :partial => 'pictures/picture', :locals => {:picture => favourite.picture}  %>
       <% end %>
   </div>
 

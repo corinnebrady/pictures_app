@@ -12,12 +12,12 @@
 #
 
 class Picture < ActiveRecord::Base
-  attr_accessible :picture, :description, :user_id, :name
+  attr_accessible :picture, :description, :user_id, :name, :remote_picture_url
 
-#  mount_uploader :picture, PictureUploader
+  mount_uploader :picture, PictureUploader
 
   belongs_to :user
-  belongs_to :favourites
+  has_many :favourites
 
   validates :picture, :presence => true
 
