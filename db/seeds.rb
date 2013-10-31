@@ -3,10 +3,10 @@ Picture.destroy_all
 Category.destroy_all
 
 
-u1 = User.create(:username => "Corinne", :email => "cemail@email.com", :image => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password", :is_admin => true)
-u2 = User.create(:username => "Anna", :email => "aemail@email.com", :image => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
-u3 = User.create(:username => "Bob", :email => "bemail@email.com", :image => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
-u4 = User.create(:username => "Dave", :email => "demail@email.com", :image => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
+u1 = User.create(:username => "Corinne", :email => "cemail@email.com", :remote_image_url => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password", :is_admin => true)
+u2 = User.create(:username => "Anna", :email => "aemail@email.com", :remote_image_url => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
+u3 = User.create(:username => "Bob", :email => "bemail@email.com", :remote_image_url => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
+u4 = User.create(:username => "Dave", :email => "demail@email.com", :remote_image_url => "http://www.lullabot.com/sites/default/files/styles/medium/public/bio_image/default_user_picture.png?itok=yhSgn5xP", :password => "password", :password_confirmation => "password")
 
 p1 = Picture.create(:name => "Name", :remote_picture_url => "http://www.cityofsound.com/photos/uncategorized/2007/05/30/greenberg2.jpg", :description => "descrition here")
 p2 = Picture.create(:name => "Name", :remote_picture_url => "http://webneel.com/daily/sites/default/files/images/daily/06-2013/2-inspiring-photograph-old-age.jpg", :description => "descrition here")
