@@ -1,4 +1,4 @@
-<h1>This is the category/NEW page</h1>
+<h2>New Category</h2>
 
 
 <% if @category.errors.any? %>
@@ -16,9 +16,9 @@
   <%= label_tag(:new_category, "Create a New Category:") %>
   <%= text_field_tag(:new_category) %>
   <br>
-  <h4>Select who to add this category:</h4>
+  <h3>Select who to add this category:</h3>
     <% @users.each do |user| %>
-        <%= check_box_tag "user[]", user.id %><%= user.username %>
+        <h4><%= check_box_tag "user[]", user.id %><%= user.username %></h4>
     <% end %>
   <br>
   <%= submit_tag("Submit") %>

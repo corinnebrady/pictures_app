@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
 
   def update
     picture = Picture.find params[:id]
-    if @picture.user_id != @authenticated.id
+    if picture.user_id != @authenticated.id
       redirect_to picture_path(picture)
     end
 
@@ -50,16 +50,12 @@ class PicturesController < ApplicationController
   def destroy
     picture = Picture.find params[:id]
     if picture.user_id != @authenticated.id
-      redirect_to root_path
+      redirect_to user_path(@authenticated)
     end
     picture.destroy
     redirect_to user_path(@authenticated)
   end
 
-  # def favourites
-  #   @favourites = Favourite.all
-  #   @pictures = Picture.all
-  # end
 
   def favourite
     favourite = Favourite.create :picture_id => params[:id], :user_id => @authenticated.id
@@ -71,11 +67,5 @@ class PicturesController < ApplicationController
     favourite.destroy
     redirect_to :back
   end
-
-
-
-
-
-
 
 end

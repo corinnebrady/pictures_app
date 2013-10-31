@@ -1,20 +1,19 @@
 
 
-   <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail_container">
 
-      <%== link_to raw("<div class='thumbnail' style='background-image:url(#{picture.picture})'></div>"), picture_path(picture) %>
+      <%== link_to raw("<div class='thumbnail' style='background-image:url(#{picture.picture_url})'></div>"), picture_path(picture) %>
       <div class="caption">
 
-        <% if picture.id.in? @authenticated.favourites.map &:picture_id %>
-          <%= button_to 'Unfavourite', favourite_path(picture), :method => 'delete' %>
-        <% else %>
-          <%= button_to 'Favourite!', favourite_path(picture), :method => 'get' %>
-        <% end %>
-
-
         <p class="thumb_cap"><%= picture.name %></p>
-        <p class="thumb_cap"><strong><%= link_to picture.user.username, user_path(picture.user) %> </strong></p>
+        <h4 class="thumb_cap pull-left"><%= link_to picture.user.username, user_path(picture.user) %></h4>
+
+        <% if picture.id.in? @authenticated.favourites.map &:picture_id %>
+          <%= button_to 'Unfavourite', favourite_path(picture), :method => 'delete', :class => 'pull-right' %>
+        <% else %>
+          <%= button_to 'Favourite!', favourite_path(picture), :method => 'get', :class => 'pull-right' %>
+        <% end %>
       </div>
     </div>
 </div>

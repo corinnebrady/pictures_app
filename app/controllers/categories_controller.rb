@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
       user.categories << category
     end
 
-    redirect_to root_path
+    redirect_to category_path(@category)
   end
 
 
@@ -36,24 +36,9 @@ class CategoriesController < ApplicationController
     redirect_to category_path(@category)
   end
 
-#   def update
-#     category = Category.find params[:id]
-#     # if @picture.user_id != @authenticated.id
-#     #   redirect_to root_path
-#     # end
-#     if category.update_attributes params[:category]
-#       redirect_to :back
-# #      redirect_to user_path(@authenticated)
-#     else
-#       render :new
-#     end
-#   end
-
   def show
     @category = Category.find params[:id]
-
   end
-
 
   def destroy
     category = Category.find params[:id]
@@ -61,7 +46,7 @@ class CategoriesController < ApplicationController
       redirect_to root_path
     end
     category.destroy
-    redirect_to root_path
+    redirect_to user_path(@authenticated)
   end
 
   def edit_user_categories

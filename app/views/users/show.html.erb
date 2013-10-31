@@ -4,7 +4,7 @@
     <% if @user.id != @authenticated.id %>
       <h2 class="username"><%= @user.username %> </h2>
       <%= image_tag @user.image %>
-      <div><%= link_to 'Add #{@user.username} to a Category', edit_user_to_categories_path(@user) %></div>
+      <h3><%= link_to 'Add to a Category', edit_user_to_categories_path(@user) %></h3>
       <h2><%= @user.username %>'s Pictures </h2>
     <% else %>
       <h2>My Pictures</h2>

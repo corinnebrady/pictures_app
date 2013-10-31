@@ -1,4 +1,4 @@
-<h1>This is the page that lets you pick categories to add to an already chosen user</h1>
+<h2>Add this Glimpsed user to Categories</h2>
 
 
 
@@ -7,7 +7,7 @@
   <%= label_tag(:new_category, "Create a New Category:") %>
   <%= text_field_tag(:new_category) %>
   <br>
-    <h4>Or Select which category to add this person to:</h4>
+    <h4>Or Select from your existing categories:</h4>
     <% @categories.each do |category| %>
       <% if category.owner_id == @authenticated.id %>
         <%= check_box_tag "category[]", category.id, @user.id.in?(category.user_ids) %><%= category.name %>

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       category = Category.create :name => 'All', :owner_id => @user.id
       category.users = User.all
 #wishlist- add future users
-      redirect_to root_path
+      redirect_to pictures_path
 
     else
       render :new
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = @authenticated
     if @user.update_attributes params[:user]
-      redirect_to root_path
+      redirect_to user_path(@authenticated)
     else
       render :new
     end

@@ -1,4 +1,8 @@
-<h1>This is the users/NEW page</h1>
+<% if @user.id.present? %>
+  <h2>Edit Your Profile</h2>
+<% else %>
+  <h2>Become a new user</h2>
+<% end %>
 
 <% if @user.errors.any? %>
   <ol>
