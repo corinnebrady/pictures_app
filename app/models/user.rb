@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
 
   validates :email, :presence => true
   validates :email, :uniqueness => true
-  validates :image, :presence => true
   validates :username, :presence => true, :length => { :minimum => 3 }
   validates :password, :length => { :minimum => 6 }
 
