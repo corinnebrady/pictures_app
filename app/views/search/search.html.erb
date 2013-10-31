@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12 col-md-10">
+    <h1>Search Results:</h1>
+
+    <h5>Users:</h4>
+      <ul>
+        <% @users.each do |user| %>
+          <div class="user_index">
+            <h3><%= link_to user.username, user_path(user) %> </h3>
+            <%= image_tag user.image %>
+          </div>
+        <% end %>
+      </ul>
+
+    <h5>Pictures:</h4>
+        <%= render :partial => 'pictures/picture', :collection => @pictures %>
+  </div>
+
+    <%= render :partial => 'users/sidenav', :locals => {:user => @authenticated} %>
+</div>
+
+

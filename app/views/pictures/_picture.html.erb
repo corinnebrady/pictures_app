@@ -2,8 +2,10 @@
 
    <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <%= link_to image_tag(picture.picture), picture_path(picture), class: "thumbnail" %>
+
+      <%== link_to raw("<div class='thumbnail' style='background-image:url(#{picture.picture})'></div>"), picture_path(picture) %>
       <div class="caption">
+        <%= button_to 'Favourite!', favourite_path(picture), :method => 'get' %>
         <p class="thumb_cap"><%= picture.name %></p>
         <p class="thumb_cap"><strong><%= link_to picture.user.username, user_path(picture.user) %> </strong></p>
       </div>

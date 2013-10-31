@@ -57,9 +57,9 @@ class CategoriesController < ApplicationController
 
   def destroy
     category = Category.find params[:id]
-#    if @category.user_id != @authenticated.id
-#      redirect_to root_path
-#    end
+    if category.owner_id != @authenticated.id
+      redirect_to root_path
+    end
     category.destroy
     redirect_to root_path
   end

@@ -5,7 +5,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Cherry+Swash:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -24,6 +23,18 @@
         <ul class="nav navbar-nav">
           <li><%= link_to('Pictures', pictures_path) %></li>
           <%== authentication_menu %>
+          <% unless @authenticated.nil? %>
+            <%= form_tag '/search', :method => 'get' do %>
+                  <%= text_field_tag(:query) %>
+                  <%= submit_tag 'Search' %>
+                <% end %>
+          <% end %>
+
+
+
+
+
+
         </ul>
       </div><!--/.nav-collapse -->
     </div> <!-- .container -->

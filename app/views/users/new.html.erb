@@ -3,7 +3,7 @@
 <% if @user.errors.any? %>
   <ol>
     <% @user.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning"><%= msg %></div>
+      <li class="alert alert-warning"><%= msg %></li>
     <% end %>
   </ol>
 <% end %>

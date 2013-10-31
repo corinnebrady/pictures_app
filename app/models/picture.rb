@@ -17,7 +17,7 @@ class Picture < ActiveRecord::Base
 #  mount_uploader :picture, PictureUploader
 
   belongs_to :user
-  has_and_belongs_to_many :favourites
+  belongs_to :favourites
 
   validates :picture, :presence => true
 

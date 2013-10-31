@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12 col-md-10">
+    <h1>My Favourites</h1>
+      <% @favourites.each do |favourite| %>
+        <% @pictures.each do |picture| %>
+          <%= render :partial => '_picture' %>
+        <% end %>
+      <% end %>
+  </div>
+
+    <%= render :partial => 'sidenav', :locals => {:user => @authenticated} %>
+</div>

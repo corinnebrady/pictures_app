@@ -49,6 +49,12 @@ class UsersController < ApplicationController
     @picture = Picture.new
   end
 
+  def favourites
+    @favourites = Favourite.all
+    @pictures = Picture.all
+  end
+
+
 
   private
   def check_if_logged_in

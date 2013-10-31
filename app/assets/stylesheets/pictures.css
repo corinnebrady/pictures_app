@@ -1,7 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Cherry+Swash:400,700);
+
 body {
   margin-top: 60px;
   background-color: rgba(165, 165, 165, 1);
   color: rgba(6, 14, 69, 1);
+}
+
+body, body h1, body h2, body h3 {
   font-family: 'Cherry Swash', cursive;
 }
 
@@ -80,11 +85,14 @@ div.thumbnail {
                 SIDE NAV
 *******************************************/
 .btn-group-vertical > .btn, .btn-group-vertical > .btn-group {
-  max-width: 196px;
   margin: auto;
   border: 3px solid rgba(6, 14, 69, .7);
   border-radius: 10px;
   background-color: rgba(200, 200, 200, 1);
+}
+
+.btn-group-vertical{
+  width: 100%;
 }
 
 .side_nav_cat {
@@ -93,14 +101,19 @@ div.thumbnail {
 
 .username {
   text-align: center;
+  width: 100%;
+
 }
 
 .user_img {
-  max-width: 150px;
+  width: 100%;
   border: 3px solid rgba(6, 14, 69, .7);
   border-radius: 10px;
 }
-
+h5.heading {
+  color: red;
+  cursor: default;
+}
 /*******************************************
                 SHOW PICTURE
 *******************************************/
@@ -112,7 +125,7 @@ div.thumbnail {
 
 .show_pic_page {
   margin: auto;
-
+  text-align: center;
 }
 
 
@@ -160,10 +173,9 @@ a {
 }
 
 a:hover {
-  text-shadow: 0 0 9px rgba(6, 14, 69, .3);
   text-decoration: none;
   color: rgba(6, 14, 69, 1);
-
+  font-weight: bold;
 }
 
 
