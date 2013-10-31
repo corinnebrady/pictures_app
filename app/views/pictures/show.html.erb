@@ -4,7 +4,7 @@
   <h2><%= @picture.name %></h2>
   <h5><%= link_to @picture.user.username, user_path(@picture.user) %> </h5>
   <div class="show_picture">
-  <%= image_tag @picture.picture %>
+  <%= image_tag @picture.picture_url %>
   </div>
         <% if @picture.id.in? @authenticated.favourites.map &:picture_id %>
           <%= button_to 'Unfavourite', favourite_path(@picture), :method => 'delete' %>

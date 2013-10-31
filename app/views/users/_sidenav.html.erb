@@ -2,7 +2,7 @@
 <div class="col-xs-6 col-md-2">
   <h2 class="username"><%= link_to user.username, user_path(@authenticated) %> </h2>
 
-  <%= image_tag user.image, class: "user_img" %>
+  <%= image_tag user.image_url, class: "user_img" %>
 
   <div class="btn-group-vertical">
       <%= link_to 'My Favourites', "/users/#{user.id}/favourites", class: "btn btn-default dropdown-toggle" %>
