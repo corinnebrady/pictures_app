@@ -201,7 +201,22 @@ h5.heading {
 .show_pic_page {
   margin: auto;
   text-align: center;
+  margin-bottom: 30px;
 }
+
+.show_pic_btn{
+
+}
+
+.show_pic_btn .fav{
+  margin-top: -30px;
+}
+
+.show_pic_btn .ed{
+  display: inline;
+}
+
+
 
 
 /*******************************************
