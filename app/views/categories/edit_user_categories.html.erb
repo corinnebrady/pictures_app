@@ -13,5 +13,6 @@
         <%= check_box_tag "category[]", category.id, @user.id.in?(category.user_ids) %><%= category.name %>
       <% end %>
     <% end %>
+    <br>
   <%= submit_tag("Submit") %>
 <% end %>

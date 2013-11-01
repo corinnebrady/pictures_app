@@ -23,11 +23,12 @@
         <ul class="nav navbar-nav">
           <li><%= link_to('Pictures', pictures_path) %></li>
           <%== authentication_menu %>
+        </ul>
           <% unless @authenticated.nil? %>
-            <%= form_tag '/search', :method => 'get' do %>
-                  <%= text_field_tag(:query) %>
-                  <%= submit_tag 'Search' %>
-                <% end %>
+            <%= form_tag '/search', :method => 'get', :class => 'nav navbar-nav navbar-right' do %>
+              <%= text_field_tag(:query) %>
+              <%= submit_tag 'Search' %>
+            <% end %>
           <% end %>
 
 
@@ -35,7 +36,6 @@
 
 
 
-        </ul>
       </div><!--/.nav-collapse -->
     </div> <!-- .container -->
   </div>

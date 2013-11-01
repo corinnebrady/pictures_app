@@ -3,10 +3,12 @@
     <h2>Glimpsed Users</h2>
 
       <% @users.each do |user| %>
+      <div class="col-sm-6 col-md-3">
         <div class="user_index">
           <h3><%= link_to user.username, user_path(user) %> </h3>
           <div class='thumbnail' style='background-image:url(<%= user.image_url %>)'></div>
         </div>
+      </div>
       <% end %>
   </div>
 
