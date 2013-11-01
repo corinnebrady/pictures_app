@@ -23,7 +23,8 @@
       <%= f.label :email %>
       <%= f.text_field :email, :class => 'form-control' %>
     </div>
-    <%= image_tag @user.image_url if @user.image? %>
+
+    <div class="user_edit_img"><%= image_tag @user.image_url if @user.image? %></div>
 
     <div class='form-group'>
       <%= f.label :image %>

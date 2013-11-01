@@ -1,22 +1,27 @@
-<h1>This is the page that displays A SINGLE pictures</h1>
+<div class="row">
 
-<div class="show_pic_page">
-  <h2><%= @picture.name %></h2>
-  <h5><%= link_to @picture.user.username, user_path(@picture.user) %> </h5>
-  <div class="show_picture">
-  <%= image_tag @picture.picture_url %>
+  <%= render :partial => 'users/sidenav', :locals => {:user => @authenticated} %>
+  <div class="col-md-10 col-md-pull-2">
+
+    <div class="show_pic_page">
+      <h2><%= @picture.name %></h2>
+      <h5><%= link_to @picture.user.username, user_path(@picture.user) %> </h5>
+      <div class="show_picture">
+      <%= image_tag @picture.picture_url %>
+      </div>
+            <% if @picture.id.in? @authenticated.favourites.map &:picture_id %>
+              <%= button_to 'Unfavourite', favourite_path(@picture), :method => 'delete' %>
+            <% else %>
+              <%= button_to 'Favourite!', favourite_path(@picture), :method => 'get' %>
+            <% end %>
+
+      <p><%= @picture.description %></p>
+
+
+      <% if @picture.user_id == @authenticated.id %>
+        <%= link_to 'Edit Picture', edit_picture_path(@picture) %>
+        <%= button_to 'Delete Picture', picture_path(@picture), :method => 'delete', :confirm => 'Are you sure you want to delete this picture?' %>
+      <% end %>
+    </div>
   </div>
-        <% if @picture.id.in? @authenticated.favourites.map &:picture_id %>
-          <%= button_to 'Unfavourite', favourite_path(@picture), :method => 'delete' %>
-        <% else %>
-          <%= button_to 'Favourite!', favourite_path(@picture), :method => 'get' %>
-        <% end %>
-
-  <p><%= @picture.description %></p>
-
-
-  <% if @picture.user_id == @authenticated.id %>
-    <%= link_to 'Edit Picture', edit_picture_path(@picture) %>
-    <%= button_to 'Delete Picture', picture_path(@picture), :method => 'delete', :confirm => 'Are you sure you want to delete this picture?' %>
-  <% end %>
 </div>

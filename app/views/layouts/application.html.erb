@@ -24,12 +24,14 @@
           <li><%= link_to('Pictures', pictures_path) %></li>
           <%== authentication_menu %>
         </ul>
+        <div class="search nav navbar-nav navbar-right">
           <% unless @authenticated.nil? %>
-            <%= form_tag '/search', :method => 'get', :class => 'nav navbar-nav navbar-right' do %>
+            <%= form_tag '/search', :method => 'get' do %>
               <%= text_field_tag(:query) %>
               <%= submit_tag 'Search' %>
             <% end %>
           <% end %>
+        </div>
 
 
 

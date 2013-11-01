@@ -1,6 +1,7 @@
 
 <div class="row">
-  <div class="col-xs-12 col-md-10">
+  <%= render :partial => 'sidenav', :locals => {:user => @authenticated} %>
+  <div class="col-md-10 col-md-pull-2">
     <% if @user.id != @authenticated.id %>
       <h2 class="username"><%= @user.username %> </h2>
       <h3><%= link_to 'Add to a Category', edit_user_to_categories_path(@user) %></h3>
@@ -13,6 +14,5 @@
     <%= render :partial => 'pictures/picture', :collection => @user.pictures %>
   </div>
 
-  <%= render :partial => 'sidenav', :locals => {:user => @authenticated} %>
 </div>
 
