@@ -8,11 +8,12 @@
 
         <p class="thumb_cap"><%= picture.name %></p>
         <h4 class="thumb_cap pull-left"><%= link_to picture.user.username, user_path(picture.user) %></h4>
-
-        <% if picture.id.in? @authenticated.favourites.map &:picture_id %>
-          <%= button_to 'Unfavourite', favourite_path(picture), :method => 'delete', :class => 'pull-right' %>
-        <% else %>
-          <%= button_to 'Favourite!', favourite_path(picture), :method => 'get', :class => 'pull-right' %>
+        <% if @authenticated.present? %>
+          <% if picture.id.in? @authenticated.favourites.map &:picture_id %>
+            <%= button_to 'Unfavourite', favourite_path(picture), :method => 'delete', :class => 'pull-right' %>
+          <% else %>
+            <%= button_to 'Favourite!', favourite_path(picture), :method => 'get', :class => 'pull-right' %>
+          <% end %>
         <% end %>
       </div>
     </div>
