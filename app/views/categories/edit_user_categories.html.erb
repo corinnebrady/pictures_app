@@ -1,18 +1,24 @@
-<h2>Add this Glimpsed user to Categories</h2>
+<div class="row">
+  <%= render :partial => 'sidenav', :locals => {:user => @authenticated} %>
+  <div class="col-md-10 col-md-pull-2">
+      <h2>Add this Glimpsed user to Categories</h2>
 
 
 
-<%= form_tag "/categories/add_user_to_categories", :method => 'post' do %>
-  <input type="hidden" name="member_id" value="<%= @user.id %>">
-  <%= label_tag(:new_category, "Create a New Category:") %>
-  <%= text_field_tag(:new_category) %>
-  <br>
-    <h4>Or Select from your existing categories:</h4>
-    <% @categories.each do |category| %>
-      <% if category.owner_id == @authenticated.id %>
-        <%= check_box_tag "category[]", category.id, @user.id.in?(category.user_ids) %><%= category.name %>
+      <%= form_tag "/categories/add_user_to_categories", :method => 'post' do %>
+        <input type="hidden" name="member_id" value="<%= @user.id %>">
+        <%= label_tag(:new_category, "Create a New Category:") %>
+        <%= text_field_tag(:new_category) %>
+        <br>
+          <h4>Or Select from your existing categories:</h4>
+          <% @categories.each do |category| %>
+            <% if category.owner_id == @authenticated.id %>
+              <%= check_box_tag "category[]", category.id, @user.id.in?(category.user_ids) %><%= category.name %>
+            <% end %>
+          <% end %>
+          <br>
+        <%= submit_tag("Submit") %>
       <% end %>
-    <% end %>
-    <br>
-  <%= submit_tag("Submit") %>
-<% end %>
+  </div>
+
+</div>

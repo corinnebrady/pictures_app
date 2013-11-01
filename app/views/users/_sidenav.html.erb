@@ -3,7 +3,7 @@
 <div class="col-md-2 col-md-push-10">
   <h2 class="username"><%= link_to user.username, user_path(@authenticated) %> </h2>
 
-  <%= image_tag user.image_url, class: "user_img" %>
+  <%= link_to (image_tag user.image_url, class: "user_img"), user_path(@authenticated) %>
 
   <div class="btn-group-vertical">
       <%= link_to 'Edit Profile', edit_users_path, class: "btn btn-default dropdown-toggle" %>
@@ -13,7 +13,7 @@
 
     <h5 class="btn btn-default dropdown-toggle heading"><strong>Categories:</strong></h4>
       <% user.owned_categories.each do |category| %>
-        <%= link_to category.name, category_path(category), class: "btn btn-default dropdown-toggle" %>
+        <%= link_to category.name, category_path(category), class: "btn btn-default dropdown-toggle", :title => category.name %>
       <% end %>
   </div>
 </div>

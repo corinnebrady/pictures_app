@@ -1,47 +1,53 @@
-<% if @user.id.present? %>
-  <h2>Edit Your Profile</h2>
-<% else %>
-  <h2>Become a new user</h2>
-<% end %>
+<div class="row">
+  <%= render :partial => 'users/sidenav', :locals => {:user => @authenticated} %>
+  <div class="col-md-10 col-md-pull-2">
+      <% if @user.id.present? %>
+        <h2>Edit Your Profile</h2>
+      <% else %>
+        <h2>Become a new user</h2>
+      <% end %>
 
-<% if @user.errors.any? %>
-  <ol>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning"><%= msg %></li>
-    <% end %>
-  </ol>
-<% end %>
+      <% if @user.errors.any? %>
+        <ol>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li class="alert alert-warning"><%= msg %></li>
+          <% end %>
+        </ol>
+      <% end %>
 
-<div class="new_user_form">
-  <%= form_for @user, :html => {:multipart => true} do |f| %>
+      <div class="new_user_form">
+        <%= form_for @user, :html => {:multipart => true} do |f| %>
 
-    <div class='form-group'>
-      <%= f.label :username %>
-      <%= f.text_field :username, :autofocus => true, :class => 'form-control' %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :email %>
-      <%= f.text_field :email, :class => 'form-control' %>
-    </div>
+          <div class='form-group'>
+            <%= f.label :username %>
+            <%= f.text_field :username, :autofocus => true, :class => 'form-control' %>
+          </div>
+          <div class='form-group'>
+            <%= f.label :email %>
+            <%= f.text_field :email, :class => 'form-control' %>
+          </div>
 
-    <div class="user_edit_img"><%= image_tag @user.image_url if @user.image? %></div>
+          <div class="user_edit_img"><%= image_tag @user.image_url if @user.image? %></div>
 
-    <div class='form-group'>
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :remote_image_url, "Or Picture Url" %>
-      <%= f.text_field :remote_image_url, :class => 'form-control' %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :password %>
-      <%= f.password_field :password, :class => 'form-control' %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, :class => 'form-control' %>
-    </div>
-    <%= f.submit %>
+          <div class='form-group'>
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+          </div>
+          <div class='form-group'>
+            <%= f.label :remote_image_url, "Or Picture Url" %>
+            <%= f.text_field :remote_image_url, :class => 'form-control' %>
+          </div>
+          <div class='form-group'>
+            <%= f.label :password %>
+            <%= f.password_field :password, :class => 'form-control' %>
+          </div>
+          <div class='form-group'>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, :class => 'form-control' %>
+          </div>
+          <%= f.submit %>
+        </div>
+      <% end %>
   </div>
-<% end %>
+
+</div>

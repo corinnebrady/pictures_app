@@ -3,9 +3,9 @@
   <%= render :partial => 'sidenav', :locals => {:user => @authenticated} %>
   <div class="col-md-10 col-md-pull-2">
     <% if @user.id != @authenticated.id %>
-      <h2 class="username"><%= @user.username %> </h2>
+      <h2 class="show_user"><%= @user.username %> </h2>
       <h3><%= link_to 'Add to a Category', edit_user_to_categories_path(@user) %></h3>
-      <h2><%= image_tag @user.image %></h2>
+      <h2 class="show_user"><%= image_tag @user.image %></h2>
       <h2><%= @user.username %>'s Pictures </h2>
     <% else %>
       <h2>My Pictures</h2>

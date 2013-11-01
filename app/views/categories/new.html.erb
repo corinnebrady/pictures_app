@@ -1,28 +1,33 @@
-<h2>New Category</h2>
+<div class="row">
+  <%= render :partial => 'users/sidenav', :locals => {:user => @authenticated} %>
+  <div class="col-md-10 col-md-pull-2">
+      <h2>New Category</h2>
 
 
-<% if @category.errors.any? %>
-  <ol>
-    <% @category.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning"><%= msg %></div>
-    <% end %>
-  </ol>
-<% end %>
+      <% if @category.errors.any? %>
+        <ol>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li class="alert alert-warning"><%= msg %></div>
+          <% end %>
+        </ol>
+      <% end %>
 
 
 
-<%= form_tag "/categories/new_category", :method => 'post' do %>
-  <input type="hidden" name="id" value="new_category">
-  <%= label_tag(:new_category, "Create a New Category:") %>
-  <%= text_field_tag(:new_category) %>
-  <br>
-  <h3>Select who to add this category:</h3>
-    <% @users.each do |user| %>
-        <h4><%= check_box_tag "user[]", user.id %><%= user.username %></h4>
-    <% end %>
-  <br>
-  <%= submit_tag("Submit") %>
-<% end %>
+      <%= form_tag "/categories/new_category", :method => 'post' do %>
+        <input type="hidden" name="id" value="new_category">
+        <%= label_tag(:new_category, "Create a New Category:") %>
+        <%= text_field_tag(:new_category) %>
+        <br>
+        <h3>Select who to add this category:</h3>
+          <% @users.each do |user| %>
+              <h4><%= check_box_tag "user[]", user.id %><%= user.username %></h4>
+          <% end %>
+        <br>
+        <%= submit_tag("Submit") %>
+      <% end %>
+  </div>
 
+</div>
 
 

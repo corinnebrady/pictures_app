@@ -1,29 +1,34 @@
-<h1>Edit Category</h1>
+<div class="row">
+  <%= render :partial => 'users/sidenav', :locals => {:user => @authenticated} %>
+  <div class="col-md-10 col-md-pull-2">
+      <h1>Edit Category</h1>
 
-<% if @category.errors.any? %>
-  <ol>
-    <% @category.errors.full_messages.each do |msg| %>
-      <li class="alert alert-warning"><%= msg %></div>
-    <% end %>
-  </ol>
-<% end %>
-
-
-
-
-<%= form_tag "/categories/#{@category.id}", :method => 'put' do %>
-  <input type="hidden" name="id" value="<%= @category.id %>">
-
-  <h4>Select who to add this category:</h4>
-    <% @users.each do |user| %>
-      <% if @category.owner_id == @authenticated.id %>
-        <%= check_box_tag "user[]", user.id, user.id.in?(@category.user_ids) %><%= user.username %>
+      <% if @category.errors.any? %>
+        <ol>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li class="alert alert-warning"><%= msg %></div>
+          <% end %>
+        </ol>
       <% end %>
-    <% end %>
-  <br>
-  <%= submit_tag("Submit") %>
-<% end %>
 
+
+
+
+      <%= form_tag "/categories/#{@category.id}", :method => 'put' do %>
+        <input type="hidden" name="id" value="<%= @category.id %>">
+
+        <h4>Select who to add this category:</h4>
+          <% @users.each do |user| %>
+            <% if @category.owner_id == @authenticated.id %>
+              <%= check_box_tag "user[]", user.id, user.id.in?(@category.user_ids) %><%= user.username %>
+            <% end %>
+          <% end %>
+        <br>
+        <%= submit_tag("Submit") %>
+      <% end %>
+  </div>
+
+</div>
 
 
 
